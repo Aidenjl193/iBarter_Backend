@@ -4,7 +4,7 @@ class Item < ApplicationRecord
 
   def image_urls
     self.images.map do |image|
-      rails_blob_path(image, host: "localhost")
+      rails_blob_path(image, only_path: true)
     end
   end
 end
