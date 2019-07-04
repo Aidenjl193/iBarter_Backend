@@ -80,6 +80,5 @@ test:
 #
 production:
   <<: *default
-  database: iBarter_Backend_production
-  username: iBarter_Backend
-  password: <%= ENV['IBARTER_BACKEND_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  database: postgres://zajvicrrlhpkta:645bf6513cf98c0623c94a2ccbb86e1bf4579478199ca37bab0848ebf93fcb21@ec2-46-137-91-216.eu-west-1.compute.amazonaws.com:5432/dep3lvs2b5l3m5
