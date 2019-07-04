@@ -3,7 +3,9 @@ class ItemsController < ApplicationController
   def index
     items = Item.all
 
-    render json: items
+    render json: items.to_json(
+             :methods => :image_urls,
+             :except => [:updated_at, :created_at])
   end
 
   def create
