@@ -13,9 +13,11 @@ class ItemsController < ApplicationController
   end
 
 
-private
+  private
 
   def item_params
+    puts params
     params.require(:item).permit(:name, :condition, :description, images: [])
   end
+
 end
