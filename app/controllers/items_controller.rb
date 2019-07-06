@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user, only: [:create]
 
   def index
     items = Item.all
@@ -9,7 +10,11 @@ class ItemsController < ApplicationController
   end
 
   def create
-    Item.create!(item_params)
+    if(current_user)
+      params = item_params
+      params.user_id = current_user.id
+      Item.create!(item_params)
+    end
   end
 
 
