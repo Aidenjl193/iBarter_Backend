@@ -11,9 +11,7 @@ class ItemsController < ApplicationController
 
   def create
     if(current_user)
-      new_params = item_params
-      new_params.user_id = current_user.id
-      Item.create!(new_params)
+      Item.create!(item_params)
     end
   end
 
@@ -22,7 +20,7 @@ class ItemsController < ApplicationController
 
   def item_params
     puts params
-    params.require(:item).permit(:name, :condition, :description, images: [])
+    params.require(:item).permit(:name, :condition, :description, images: []).merge(user_id: current_user.id)
   end
 
 end
