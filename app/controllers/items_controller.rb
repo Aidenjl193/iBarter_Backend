@@ -11,9 +11,9 @@ class ItemsController < ApplicationController
 
   def create
     if(current_user)
-      params = item_params
-      params.user_id = current_user.id
-      Item.create!(item_params)
+      new_params = item_params
+      new_params.user_id = current_user.id
+      Item.create!(new_params)
     end
   end
 
