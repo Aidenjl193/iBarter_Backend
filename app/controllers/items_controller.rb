@@ -15,6 +15,14 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+    item = Item.find(params[:id])
+
+    render json: item.to_json(
+             :methods => :image_urls,
+             :except => [:updated_at, :created_at])
+  end
+
 
   private
 
