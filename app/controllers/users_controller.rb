@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   def show
     user = User.find(params[:id])
     render json: user.to_json(
-             :only => [:first_name, :last_name, :id])
+             :only => [:first_name, :last_name, :id],
+             :include => [:items])
   end
 
   def create
