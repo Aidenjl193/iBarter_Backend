@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
     render json: items.to_json(
              :methods => :image_urls,
              :except => [:updated_at, :created_at],
-             :include => :user)
+             :include => {:user => {:only => [:first_name, :last_name, :id]}})
   end
 
   def create
