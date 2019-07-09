@@ -24,12 +24,25 @@ class ItemsController < ApplicationController
              :except => [:updated_at, :created_at])
   end
 
+  def create_offer
+    item = Item.find(params[:id])
+    if(item)
+      offer = Offer.create(offer_params)
+      offer.update({owner_id: item.owner_id})
+      #set this item
+      offer.items_offers.build({item_id: item.id})
+    end
+  end
+
 
   private
 
   def item_params
-    puts params
     params.require(:item).permit(:name, :condition, :description, images: []).merge(user_id: current_user.id)
+  end
+
+  def offer_params
+    params.require(:offer).permit(:message, item_ids: [])
   end
 
 end
