@@ -4,7 +4,12 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     render json: user.to_json(
              :only => [:first_name, :last_name, :id],
-             :include => {:items => {:except => [:updated_at, :created_at, :user_id]}})
+             :include => {
+               :items => {
+                 :except => [:updated_at, :created_at, :user_id],
+                 :methods => :image_urls
+               }
+             })
   end
 
   def create
