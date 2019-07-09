@@ -39,14 +39,14 @@ ActiveRecord::Schema.define(version: 2019_07_09_125543) do
   end
 
   create_table "item_offers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "item_id"
-    t.string "offer_id"
+    t.uuid "item_id"
+    t.uuid "offer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "items", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "user_id"
+    t.uuid "user_id"
     t.string "name"
     t.string "description"
     t.string "condition"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2019_07_09_125543) do
     t.boolean "accepted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "owner_id"
+    t.uuid "owner_id"
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
