@@ -8,6 +8,9 @@ class UsersController < ApplicationController
                :items => {
                  :except => [:updated_at, :created_at, :user_id],
                  :methods => :image_urls
+               },
+               :offers => {
+                 :except => [:updated_at, :created_at],
                }
              })
   end
