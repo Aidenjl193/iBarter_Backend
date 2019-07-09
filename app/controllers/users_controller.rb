@@ -10,7 +10,7 @@ class UsersController < ApplicationController
                  :methods => :image_urls
                },
                :offers => {
-                 :except => [:updated_at, :created_at],
+                 :except => [:updated_at, :created_at]
                }
              })
   end
