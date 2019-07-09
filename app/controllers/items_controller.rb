@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
     item = Item.find(params[:id])
     if(item)
       offer = Offer.create(offer_params)
-      offer.update({owner_id: item.owner_id})
+      offer.update({owner_id: item.user_id})
       #set this item
       offer.items_offers.build({item_id: item.id})
     end
