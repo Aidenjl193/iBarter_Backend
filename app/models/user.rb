@@ -6,6 +6,6 @@ class User < ApplicationRecord
   has_many :offers, through: :item_offers
 
   def incoming_offers
-    offers.where(owner_id: self.id)
+    Offer.where(owner_id: self.id)
   end
 end
