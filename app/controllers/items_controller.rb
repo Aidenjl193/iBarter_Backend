@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
       offer = Offer.create(offer_params)
       offer.update({owner_id: item.user_id})
       #set this item
-      offer.item_offers.build({item_id: item.id})
+      offer.item_offers.build({item_id: item.id}).save
     end
   end
 
